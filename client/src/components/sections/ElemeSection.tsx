@@ -4,12 +4,13 @@ import { elemeData } from "@/lib/trainingData";
 import { CheckCircle2, Sparkles, Smartphone, Gift, BarChart3, Star, Megaphone, Target, Zap, AlertTriangle } from "lucide-react";
 
 export default function ElemeSection() {
+  const baseUrl = import.meta.env.BASE_URL;
   return (
     <section id="eleme" className="scroll-mt-8">
       {/* Section Header */}
       <div className="relative rounded-2xl overflow-hidden mb-8">
         <img
-          src="/images/eleme-section.png"
+          src={`${baseUrl}images/eleme-section.png`}
           alt="淘宝闪购（饿了么）平台"
           className="w-full h-48 object-cover"
         />

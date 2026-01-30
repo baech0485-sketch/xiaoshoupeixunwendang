@@ -5,12 +5,13 @@ import { meituanData } from "@/lib/trainingData";
 import { CheckCircle2, AlertCircle, Zap, Target, TrendingUp, Calendar, Star, Gift, Megaphone, AlertTriangle } from "lucide-react";
 
 export default function MeituanSection() {
+  const baseUrl = import.meta.env.BASE_URL;
   return (
     <section id="meituan" className="scroll-mt-8">
       {/* Section Header */}
       <div className="relative rounded-2xl overflow-hidden mb-8">
         <img
-          src="/images/meituan-section.png"
+          src={`${baseUrl}images/meituan-section.png`}
           alt="美团平台"
           className="w-full h-48 object-cover"
         />

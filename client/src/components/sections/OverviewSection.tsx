@@ -4,12 +4,13 @@ import { PieChart, Pie, Cell, ResponsiveContainer, BarChart, Bar, XAxis, YAxis, 
 import { TrendingUp, Users, Bike, ShoppingBag } from "lucide-react";
 
 export default function OverviewSection() {
+  const baseUrl = import.meta.env.BASE_URL;
   return (
     <section id="overview" className="scroll-mt-8">
       {/* Hero Section */}
       <div className="relative rounded-2xl overflow-hidden mb-8">
         <img
-          src="/images/hero-bg.png"
+          src={`${baseUrl}images/hero-bg.png`}
           alt="Hero Background"
           className="w-full h-64 md:h-80 object-cover"
         />
