@@ -34,8 +34,18 @@ function App() {
       >
         <TooltipProvider>
           <Toaster />
+          <div className="fixed top-0 left-0 right-0 h-9 bg-sidebar text-sidebar-foreground border-b border-sidebar-border z-40">
+            <div className="h-full flex items-center justify-center gap-2 text-xs sm:text-sm">
+              <span className="px-2 py-0.5 rounded-full bg-sidebar-accent/20 text-sidebar-accent-foreground/90 font-semibold tracking-[0.2em]">
+                呈尚策划
+              </span>
+              <span className="text-sidebar-foreground/70">品牌出品</span>
+            </div>
+          </div>
           <Router base={base}>
-            <Routes />
+            <div className="pt-9">
+              <Routes />
+            </div>
           </Router>
         </TooltipProvider>
       </ThemeProvider>

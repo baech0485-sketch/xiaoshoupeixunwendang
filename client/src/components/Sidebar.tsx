@@ -32,7 +32,7 @@ export default function Sidebar({ activeSection, onSectionChange }: SidebarProps
       {/* Mobile menu button */}
       <button
         onClick={() => setMobileOpen(!mobileOpen)}
-        className="lg:hidden fixed top-4 left-4 z-50 p-2 bg-sidebar text-sidebar-foreground rounded-lg shadow-lg"
+        className="lg:hidden fixed top-2 left-4 z-50 p-2 bg-sidebar text-sidebar-foreground rounded-lg shadow-lg"
       >
         {mobileOpen ? <X size={24} /> : <Menu size={24} />}
       </button>
@@ -48,7 +48,7 @@ export default function Sidebar({ activeSection, onSectionChange }: SidebarProps
       {/* Sidebar */}
       <aside
         className={cn(
-          "fixed top-0 left-0 h-full w-64 bg-sidebar text-sidebar-foreground z-40 transition-transform duration-300 ease-in-out",
+          "fixed top-9 left-0 h-[calc(100%-36px)] w-64 bg-sidebar text-sidebar-foreground z-40 transition-transform duration-300 ease-in-out",
           "lg:translate-x-0",
           mobileOpen ? "translate-x-0" : "-translate-x-full"
         )}
