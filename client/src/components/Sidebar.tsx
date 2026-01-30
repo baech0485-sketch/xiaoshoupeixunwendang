@@ -1,12 +1,19 @@
 import { cn } from "@/lib/utils";
 import { navItems } from "@/lib/trainingData";
-import { BookOpen, Menu, X } from "lucide-react";
+import { BarChart3, BookOpen, BookText, Menu, Sparkles, Store, X, type LucideIcon } from "lucide-react";
 import { useState } from "react";
 
 interface SidebarProps {
   activeSection: string;
   onSectionChange: (section: string) => void;
 }
+
+const navIcons: Record<string, LucideIcon> = {
+  overview: BarChart3,
+  meituan: Store,
+  eleme: Sparkles,
+  glossary: BookText,
+};
 
 export default function Sidebar({ activeSection, onSectionChange }: SidebarProps) {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -54,6 +61,9 @@ export default function Sidebar({ activeSection, onSectionChange }: SidebarProps
                 <BookOpen className="w-6 h-6 text-accent-foreground" />
               </div>
               <div>
+                <span className="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] tracking-wide bg-sidebar-accent/30 text-sidebar-accent-foreground/80 mb-1">
+                  呈尚策划
+                </span>
                 <h1 className="font-semibold text-lg leading-tight">外卖运营</h1>
                 <p className="text-xs text-sidebar-foreground/70">培训手册</p>
               </div>
@@ -63,22 +73,25 @@ export default function Sidebar({ activeSection, onSectionChange }: SidebarProps
           {/* Navigation */}
           <nav className="flex-1 p-4 overflow-y-auto sidebar-scroll">
             <ul className="space-y-1">
-              {navItems.map((item) => (
-                <li key={item.id}>
-                  <button
-                    onClick={() => handleNavClick(item.id)}
-                    className={cn(
-                      "w-full flex items-center gap-3 px-4 py-3 rounded-lg text-left transition-all duration-200",
-                      activeSection === item.id
-                        ? "bg-sidebar-accent text-sidebar-accent-foreground"
-                        : "hover:bg-sidebar-accent/50 text-sidebar-foreground/80"
-                    )}
-                  >
-                    <span className="text-xl">{item.icon}</span>
-                    <span className="font-medium">{item.label}</span>
-                  </button>
-                </li>
-              ))}
+              {navItems.map((item) => {
+                const Icon = navIcons[item.id] ?? BookOpen;
+                return (
+                  <li key={item.id}>
+                    <button
+                      onClick={() => handleNavClick(item.id)}
+                      className={cn(
+                        "w-full flex items-center gap-3 px-4 py-3 rounded-lg text-left transition-all duration-200",
+                        activeSection === item.id
+                          ? "bg-sidebar-accent text-sidebar-accent-foreground"
+                          : "hover:bg-sidebar-accent/50 text-sidebar-foreground/80"
+                      )}
+                    >
+                      <Icon className="w-5 h-5 shrink-0" />
+                      <span className="font-medium">{item.label}</span>
+                    </button>
+                  </li>
+                );
+              })}
             </ul>
           </nav>
 
